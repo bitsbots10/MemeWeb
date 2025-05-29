@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - MEME</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="MEME.png" type="image/png">
+    <style>
+        .about-section {
+            padding: 140px 0 80px;
+            background-color: var(--dark-bg);
+        }
+        
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(0, 171, 255, 0.3);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 171, 255, 0.2);
+            border: 1px solid #333;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            color: var(--light-text);
+        }
+        
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .about-card {
+            background-color: #181818;
+            border-radius: 10px;
+            border: 1px solid #333;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .about-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 171, 255, 0.2);
+        }
+        
+        .about-card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-card h3 {
+            color: var(--light-text);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .about-card p {
+            color: var(--light-text);
+            opacity: 0.8;
+        }
+        
+        .team-section {
+            margin-top: 80px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background-color: #181818;
+            border-radius: 10px;
+            border: 1px solid #333;
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 171, 255, 0.2);
+        }
+        
+        .team-photo {
+            width: 100%;
+            height: 250px;
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .team-photo i {
+            font-size: 5rem;
+            color: #333;
+        }
+        
+        .team-info {
+            padding: 20px;
+        }
+        
+        .team-info h3 {
+            color: var(--light-text);
+            margin-bottom: 5px;
+        }
+        
+        .team-info p {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .team-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(0, 171, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background-color: var(--primary-color);
+            color: #0a0a0a;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: 1;
+            }
+            
+            .about-text {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="MEME.png" alt="MEME Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-token.html">Create Token</a></li>
+                    <li><a href="toml-guide.html">TOML Guide</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="http://t.me/CreateXrplTokenBot" class="btn primary-btn">Connect Bot</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>About MEME</h1>
+            <p>Learn more about our platform and mission</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Story</h2>
+                <p>The journey behind MEME</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Creating the Future of Token Creation</h3>
+                    <p>MEME was founded with a simple but powerful vision: to democratize token creation on the XRP Ledger by giving users 100% control over their tokens.</p>
+                    <p>Our platform leverages the speed, efficiency, and low cost of the XRPL to enable anyone to create their own token without requiring technical knowledge or expensive development resources.</p>
+                    <p>We believe that by empowering creators and communities, we can help drive innovation and adoption in the blockchain space.</p>
+                </div>
+                <div class="about-image">
+                    <img src="MEME.png" alt="MEME Platform">
+                </div>
+            </div>
+            
+            <div class="about-cards">
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security</h3>
+                    <p>Your tokens are created directly on the XRPL, inheriting all the security benefits of this battle-tested blockchain.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Speed</h3>
+                    <p>Create and deploy your token in minutes using our Telegram bot interface.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Join a growing community of token creators and enthusiasts on the XRPL.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="MEME.png" alt="MEME Logo">
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="create-token.html">Create Token</a></li>
+                        <li><a href="toml-guide.html">TOML Guide</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect with Us</h3>
+                    <div class="social-buttons">
+                        <a href="http://t.me/CreateXrplTokenBot" class="social-btn telegram"><i class="fab fa-telegram"></i> Telegram Bot</a>
+                        <a href="#" class="social-btn telegram-group"><i class="fab fa-telegram"></i> Telegram Group</a>
+                        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                    <div class="token-buttons">
+                        <a href="#" class="btn buy-token"><i class="fas fa-coins"></i> Buy MEME Token</a>
+                        <a href="#" class="btn buy-nft"><i class="fas fa-image"></i> Buy MEME NFTs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 MEME. All rights reserved.</p>
+                <p class="disclaimer">Disclaimer: Digital assets are highly speculative and involve significant risk of loss. The value of meme tokens is extremely volatile, and anyone who wishes to trade in any meme token should be prepared for the possibility of losing their entire investment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

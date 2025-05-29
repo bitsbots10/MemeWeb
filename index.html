@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEME - Create Token on XRPL</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;800;900&family=Orbitron:wght@700;900&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="MEME.png" type="image/png">
+    <style>
+        /* Home page specific styles */
+        .hero {
+            padding: 160px 0 120px;
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(0, 171, 255, 0.5);
+            line-height: 1.2;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: rgba(24, 24, 24, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 171, 255, 0.2);
+        }
+        
+        .card-heading {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="MEME.png" alt="MEME Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="create-token.html">Create Token</a></li>
+                    <li><a href="#" class="highlight-nav">MEME TOOLS</a></li>
+                    <li><a href="toml-guide.html">TOML Guide</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="http://t.me/CreateXrplTokenBot" class="btn primary-btn">Connect Bot</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="meme-tools-heading" data-text="MEME TOOLS">MEME TOOLS</h2>
+                <h1>The First Token Creation Platform on <span class="highlight">XRPL</span></h1>
+                <p>Create and control your tokens with 100% ownership.</p>
+                <div class="hero-cta">
+                    <a href="http://t.me/CreateXrplTokenBot" class="btn primary-btn glow-btn"><i class="fab fa-telegram"></i> Create Token</a>
+                    <a href="#features" class="btn secondary-btn"><i class="fas fa-rocket"></i> Get Started</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose MEME?</h2>
+                <p>The easiest way to create tokens on the XRP Ledger</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="card-heading">Fast & Simple</h3>
+                    <p>Create your token in minutes with our user-friendly Telegram bot interface.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="card-heading">100% Ownership</h3>
+                    <p>Maintain complete control over your tokens with no middlemen.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="card-heading">Low Fees</h3>
+                    <p>Benefit from XRPL's minimal transaction costs and fast confirmations.</p>
+                </div>
+                
+                <div class="feature-card highlight-card">
+                    <div class="card-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3 class="card-heading">First Ledger Sniper</h3>
+                    <p>Our exclusive browser extension for MEME NFT holders allows instant token purchasing on new listings.</p>
+                    <div class="new-badge">NEW</div>
+                </div>
+            </div>
+            
+            <div class="tools-requirements-alert">
+                <div class="alert-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="alert-content">
+                    <h3>MEME Tools Requirements</h3>
+                    <ul>
+                        <li><strong>First Ledger Sniper Extension:</strong> Users must own a MEME NFT to access this powerful tool</li>
+                        <li><strong>More tools coming soon!!</strong></li>
+                    </ul>
+                    <p>Our exclusive tools provide MEME token and NFT holders with premium access to the most powerful XRPL utilities.</p>
+                </div>
+            </div>
+            
+            <div class="fee-alert">
+                <div class="alert-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <div class="alert-content">
+                    <h3>Developer Fees</h3>
+                    <ul>
+                        <li><strong>Token Creation:</strong> 10 XRP developer fee per token creation</li>
+                        <li><strong>Freeze Function:</strong> 0.5 XRP developer fee per freeze when using the freeze function</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="how-it-works" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Four simple steps to create your token</p>
+            </div>
+            <div class="workflow-container">
+                <div class="workflow-line"></div>
+                <div class="workflow-items">
+                    <div class="workflow-item">
+                        <div class="workflow-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="workflow-content">
+                            <h3>01. Connect with Bot</h3>
+                            <p>Start by connecting with our Telegram bot to begin the token creation process.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-item">
+                        <div class="workflow-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="workflow-content">
+                            <h3>02. Configure Token</h3>
+                            <p>Set your token parameters including name, symbol, and total supply.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-item">
+                        <div class="workflow-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="workflow-content">
+                            <h3>03. Host TOML File (Optional)</h3>
+                            <p>Follow our guide to host your TOML file for additional token metadata and verification.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-item">
+                        <div class="workflow-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="workflow-content">
+                            <h3>04. Launch Token</h3>
+                            <p>Deploy your token to the XRPL network and take full control!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="guide" class="guide">
+        <div class="container">
+            <div class="section-header">
+                <h2>TOML Hosting Guide</h2>
+                <p>Multiple ways to host your token's TOML file</p>
+            </div>
+            
+            <div class="alert">
+                <div class="alert-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="alert-content">
+                    <h4>Important Note About TOML Files</h4>
+                    <p><span class="red-highlight">TOML files are not required to launch your token on the XRP Ledger.</span> They are optional and only provide additional metadata about your token, such as project details, social links, and contact information. You can create and launch your token without a TOML file and add it later if desired.</p>
+                </div>
+            </div>
+            
+            <div class="custom-domain-guide">
+                <h3><i class="fas fa-globe"></i> Using Your Own Domain (Recommended)</h3>
+                <p>If you already have your own domain, this is the simplest and most professional way to host your TOML file:</p>
+                
+                <ol class="custom-domain-steps">
+                    <li>Create a folder named <code>.well-known</code> in your website's root directory</li>
+                    <li>Create a file named <code>xrp-ledger.toml</code> inside the <code>.well-known</code> folder</li>
+                    <li>Add your token information to the TOML file</li>
+                    <li>Upload both the folder and file to your web server via FTP or your hosting control panel</li>
+                    <li>Your TOML file should now be accessible at: <code>https://yourdomain.com/.well-known/xrp-ledger.toml</code></li>
+                </ol>
+            </div>
+            
+            <div class="section-subheader">
+                <h3>Alternative Free & Simple Hosting Options:</h3>
+            </div>
+            
+            <div class="guide-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="vercel">Vercel</button>
+                    <button class="tab-btn" data-tab="github">GitHub Pages</button>
+                    <button class="tab-btn" data-tab="netlify">Netlify</button>
+                    <button class="tab-btn" data-tab="cloudflare">Cloudflare Pages</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="vercel-tab">
+                        <h3>Hosting with Vercel (Free)</h3>
+                        <div class="guide-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Create a Vercel Account</h4>
+                                    <p>Sign up for a free account at <a href="https://vercel.com" target="_blank">vercel.com</a></p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Create a New Project</h4>
+                                    <p>Create a new project and connect it to your GitHub repository</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Add Your TOML File</h4>
+                                    <p>Create a file named <code>.well-known/xrp-ledger.toml</code> in your project</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Deploy Your Project</h4>
+                                    <p>Deploy your project and your TOML file will be accessible at <code>yourdomain.com/.well-known/xrp-ledger.toml</code></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="github-tab">
+                        <h3>Hosting with GitHub Pages (Free)</h3>
+                        <div class="guide-steps">
+                            <!-- GitHub Pages steps will be filled in with JavaScript -->
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="netlify-tab">
+                        <h3>Hosting with Netlify (Free)</h3>
+                        <div class="guide-steps">
+                            <!-- Netlify steps will be filled in with JavaScript -->
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="cloudflare-tab">
+                        <h3>Hosting with Cloudflare Pages (Free)</h3>
+                        <div class="guide-steps">
+                            <!-- Cloudflare Pages steps will be filled in with JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <a href="toml-guide.html" class="btn secondary-btn">View Complete TOML Guide <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="pdf-docs" class="pdf-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Documentation</h2>
+                <p>View or download our detailed documentation</p>
+            </div>
+            <div class="pdf-container">
+                <div class="pdf-buttons">
+                    <a href="MEME_User_Guide.pdf" class="btn primary-btn" target="_blank"><i class="fas fa-eye"></i> View PDF</a>
+                    <a href="MEME_User_Guide.pdf" class="btn secondary-btn" download><i class="fas fa-download"></i> Download PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="cta" class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to create your XRPL token?</h2>
+                <p>Connect with our Telegram bot and launch your token in minutes!</p>
+                <a href="http://t.me/CreateXrplTokenBot" class="btn primary-btn"><i class="fab fa-telegram"></i> Connect with Bot</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="MEME.png" alt="MEME Logo">
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="create-token.html">Create Token</a></li>
+                        <li><a href="toml-guide.html">TOML Guide</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect with Us</h3>
+                    <div class="social-buttons">
+                        <a href="http://t.me/CreateXrplTokenBot" class="social-btn telegram"><i class="fab fa-telegram"></i> Telegram Bot</a>
+                        <a href="#" class="social-btn telegram-group"><i class="fab fa-telegram"></i> Telegram Group</a>
+                        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                    <div class="token-buttons">
+                        <a href="#" class="btn buy-token"><i class="fas fa-coins"></i> Buy MEME Token</a>
+                        <a href="#" class="btn buy-nft"><i class="fas fa-image"></i> Buy MEME NFTs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 MEME. All rights reserved.</p>
+                <p class="disclaimer">Disclaimer: Digital assets are highly speculative and involve significant risk of loss. The value of meme tokens is extremely volatile, and anyone who wishes to trade in any meme token should be prepared for the possibility of losing their entire investment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

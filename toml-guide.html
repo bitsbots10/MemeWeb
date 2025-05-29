@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOML Hosting Guide - MEME</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="MEME.png" type="image/png">
+    <style>
+        .guide-section {
+            padding: 140px 0 80px;
+            background-color: var(--dark-bg);
+        }
+        
+        .guide-content {
+            background-color: #181818;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            margin-top: 30px;
+        }
+        
+        .guide-content h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .guide-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .guide-content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .guide-content p {
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+        
+        .guide-content ul, .guide-content ol {
+            margin-bottom: 20px;
+            margin-left: 20px;
+            color: var(--light-text);
+        }
+        
+        .guide-content li {
+            margin-bottom: 10px;
+        }
+        
+        .guide-content code {
+            background-color: #0d0d0d;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+        
+        .guide-content pre {
+            background-color: #0d0d0d;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #333;
+        }
+        
+        .guide-content pre code {
+            background-color: transparent;
+            color: #e5e7eb;
+            padding: 0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
+        .method-card {
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: var(--transition);
+            background-color: #202020;
+        }
+        
+        .method-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 171, 255, 0.2);
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        
+        .method-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+        }
+        
+        .method-icon {
+            font-size: 1.4rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .section-header h1 {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(0, 171, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-content {
+                padding: 25px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="MEME.png" alt="MEME Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#create-token">Create Token</a></li>
+                    <li><a href="index.html#guide">TOML Guide</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="http://t.me/CreateXrplTokenBot" class="btn primary-btn">Connect Bot</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="guide-section">
+        <div class="container">
+            <div class="section-header">
+                <h1>Complete TOML Hosting Guide</h1>
+                <p>Learn different methods to host your XRP Ledger TOML file</p>
+            </div>
+            
+            <div class="guide-content">
+                <h2>What is a TOML file?</h2>
+                <p>A TOML (Tom's Obvious, Minimal Language) file is a configuration file format that's easy for humans to read and write. In the context of the XRP Ledger (XRPL), a TOML file is used to provide metadata about your token, including information about the issuer, token properties, and more.</p>
+                
+                <p>For XRPL tokens, the TOML file needs to be hosted at a specific location: <code>https://yourdomain.com/.well-known/xrp-ledger.toml</code></p>
+                
+                <h2>Why is it important?</h2>
+                <p>Hosting a proper TOML file provides several benefits:</p>
+                <ul>
+                    <li>Verifies the authenticity of your token</li>
+                    <li>Provides essential information about your token to wallets and explorers</li>
+                    <li>Builds trust with your community and potential token holders</li>
+                    <li>Required for getting listed on some exchanges and marketplaces</li>
+                </ul>
+                
+                <h2>TOML File Structure</h2>
+                <p>A basic XRP Ledger TOML file structure looks like this:</p>
+                
+                <pre><code>[[ISSUERS]]
+address = "rCSCManTZ8ME9EoLrSHHYKW8PPwWMgkwr"
+name = "CasinoCoin"
+
+[[TOKENS]]
+issuer = "rCSCManTZ8ME9EoLrSHHYKW8PPwWMgkwr"
+currency = "CSC"
+name = "CasinoCoin"
+desc = "CasinoCoin (CSC) is a digital currency, developed specifically for the regulated gaming industry."
+icon = "https://xumm.app/assets/icons/currencies/ex-csc-3.png"
+
+[[TOKENS.WEBLINKS]]
+url = "https://casinocoin.im"
+type = "website"
+title = "Official Website"
+
+[[TOKENS.WEBLINKS]]
+url = "https://casinocoin.info"
+type = "website"
+title = "Token Info Dashboard"
+
+[[TOKENS.WEBLINKS]]
+url = "https://twitter.com/CasinoCoin"
+type = "socialmedia"</code></pre>
+                
+                <p>You can customize this template with your token's details:</p>
+                <ul>
+                    <li><strong>address</strong>: Your XRPL account address</li>
+                    <li><strong>name</strong>: Your issuer name</li>
+                    <li><strong>currency</strong>: Your token's currency code</li>
+                    <li><strong>desc</strong>: A description of your token</li>
+                    <li><strong>icon</strong>: URL to your token's icon</li>
+                    <li><strong>weblinks</strong>: Links to your project's resources</li>
+                </ul>
+                
+                <h2>Hosting Methods</h2>
+                <p>There are several free and easy methods to host your TOML file. Choose the one that works best for you:</p>
+                
+                <div class="method-card">
+                    <h3><span class="method-icon"><i class="fab fa-github"></i></span> GitHub Pages</h3>
+                    <p>GitHub Pages is a free hosting service provided by GitHub that allows you to host websites directly from your GitHub repository.</p>
+                    
+                    <ol>
+                        <li>Create a GitHub account if you don't already have one.</li>
+                        <li>Create a new repository for your TOML file.</li>
+                        <li>Create a folder named <code>.well-known</code> in your repository.</li>
+                        <li>Inside the <code>.well-known</code> folder, create a file named <code>xrp-ledger.toml</code>.</li>
+                        <li>Add your TOML content to this file.</li>
+                        <li>Create a file named <code>_config.yml</code> in the root of your repository with the following content:
+                            <pre><code>include: [".well-known"]</code></pre>
+                        </li>
+                        <li>Go to repository Settings > Pages and enable GitHub Pages for your repository.</li>
+                        <li>Select the branch you want to deploy (usually "main").</li>
+                        <li>Wait for the deployment to complete.</li>
+                        <li>Your TOML file will be accessible at <code>https://yourusername.github.io/yourrepository/.well-known/xrp-ledger.toml</code></li>
+                    </ol>
+                </div>
+                
+                <div class="method-card">
+                    <h3><span class="method-icon"><i class="fas fa-rocket"></i></span> Vercel</h3>
+                    <p>Vercel is a cloud platform for static sites and serverless functions that's very easy to use.</p>
+                    
+                    <ol>
+                        <li>Create a Vercel account at <a href="https://vercel.com" target="_blank">vercel.com</a>.</li>
+                        <li>Create a new GitHub repository or use an existing one.</li>
+                        <li>In your repository, create a folder named <code>public</code>.</li>
+                        <li>Inside the <code>public</code> folder, create a folder named <code>.well-known</code>.</li>
+                        <li>Inside the <code>.well-known</code> folder, create a file named <code>xrp-ledger.toml</code>.</li>
+                        <li>Add your TOML content to this file.</li>
+                        <li>Connect your GitHub repository to Vercel.</li>
+                        <li>Deploy your project.</li>
+                        <li>Your TOML file will be accessible at <code>https://your-project-name.vercel.app/.well-known/xrp-ledger.toml</code></li>
+                    </ol>
+                </div>
+                
+                <div class="method-card">
+                    <h3><span class="method-icon"><i class="fas fa-server"></i></span> Netlify</h3>
+                    <p>Netlify is another excellent platform for hosting static websites.</p>
+                    
+                    <ol>
+                        <li>Create a Netlify account at <a href="https://netlify.com" target="_blank">netlify.com</a>.</li>
+                        <li>Create a new GitHub repository or use an existing one.</li>
+                        <li>In your repository, create a folder named <code>.well-known</code>.</li>
+                        <li>Inside the <code>.well-known</code> folder, create a file named <code>xrp-ledger.toml</code>.</li>
+                        <li>Add your TOML content to this file.</li>
+                        <li>Create a file named <code>_redirects</code> in the root of your repository with the following content:
+                            <pre><code>/*    /index.html   200</code></pre>
+                        </li>
+                        <li>Connect your GitHub repository to Netlify.</li>
+                        <li>Deploy your project.</li>
+                        <li>Your TOML file will be accessible at <code>https://your-site-name.netlify.app/.well-known/xrp-ledger.toml</code></li>
+                    </ol>
+                </div>
+                
+                <div class="method-card">
+                    <h3><span class="method-icon"><i class="fas fa-cloud"></i></span> Cloudflare Pages</h3>
+                    <p>Cloudflare Pages is a JAMstack platform for front-end developers to collaborate and deploy websites.</p>
+                    
+                    <ol>
+                        <li>Create a Cloudflare account at <a href="https://cloudflare.com" target="_blank">cloudflare.com</a>.</li>
+                        <li>Go to the Pages section in your Cloudflare dashboard.</li>
+                        <li>Create a new project and connect it to your GitHub repository.</li>
+                        <li>In your repository, create a folder named <code>.well-known</code>.</li>
+                        <li>Inside the <code>.well-known</code> folder, create a file named <code>xrp-ledger.toml</code>.</li>
+                        <li>Add your TOML content to this file.</li>
+                        <li>Create a file named <code>_headers</code> in the root of your repository with the following content:
+                            <pre><code>/*
+  Access-Control-Allow-Origin: *</code></pre>
+                        </li>
+                        <li>Deploy your project.</li>
+                        <li>Your TOML file will be accessible at <code>https://your-project-name.pages.dev/.well-known/xrp-ledger.toml</code></li>
+                    </ol>
+                </div>
+                
+                <div class="method-card">
+                    <h3><span class="method-icon"><i class="fas fa-globe"></i></span> Custom Domain</h3>
+                    <p>If you want to use your own domain, you can connect it to any of the above platforms:</p>
+                    
+                    <ol>
+                        <li>Purchase a domain from a domain registrar (e.g., Namecheap, GoDaddy).</li>
+                        <li>Go to your hosting platform's settings (GitHub Pages, Vercel, Netlify, or Cloudflare Pages).</li>
+                        <li>Add your custom domain in the settings.</li>
+                        <li>Follow the platform's instructions to configure your domain's DNS settings.</li>
+                        <li>Once configured, your TOML file will be accessible at <code>https://yourdomain.com/.well-known/xrp-ledger.toml</code></li>
+                    </ol>
+                </div>
+                
+                <h2>Hosting Token Icons for Free</h2>
+                <p>Your token's icon URL is an important part of the TOML file. Here are several free ways to host your token's icon:</p>
+                
+                <div class="method-card">
+                    <h3><span class="method-icon"><i class="fas fa-images"></i></span> GitHub Repository</h3>
+                    <p>You can host your token icon in the same GitHub repository where you host your TOML file.</p>
+                    
+                    <ol>
+                        <li>Add your icon image (preferably PNG format) to your GitHub repository.</li>
+                        <li>Get the raw URL by navigating to your image, clicking "Raw", and copying the URL.</li>
+                        <li>The URL will look like: <code>https://raw.githubusercontent.com/yourusername/yourrepository/main/youricon.png</code></li>
+                        <li>Use this URL in your TOML file's <code>icon</code> field.</li>
+                    </ol>
+                </div>
+                
+                <div class="method-card">
+                    <h3><span class="method-icon"><i class="fas fa-cloud-upload-alt"></i></span> Imgur</h3>
+                    <p>Imgur is a free image hosting service that's easy to use.</p>
+                    
+                    <ol>
+                        <li>Go to <a href="https://imgur.com" target="_blank">imgur.com</a> and create an account if you don't have one.</li>
+                        <li>Upload your token icon (preferably a square PNG image).</li>
+                        <li>Right-click on the uploaded image and select "Copy image address".</li>
+                        <li>Use this URL in your TOML file's <code>icon</code> field.</li>
+                    </ol>
+                </div>
+                
+                <div class="method-card">
+                    <h3><span class="method-icon"><i class="fas fa-code-branch"></i></span> GitLab Pages</h3>
+                    <p>Similar to GitHub Pages, GitLab also provides free hosting.</p>
+                    
+                    <ol>
+                        <li>Create a GitLab repository and upload your icon.</li>
+                        <li>Enable GitLab Pages for your repository.</li>
+                        <li>Your icon will be accessible at <code>https://yourusername.gitlab.io/yourrepository/youricon.png</code></li>
+                    </ol>
+                </div>
+                
+                <div class="method-card">
+                    <h3><span class="method-icon"><i class="fas fa-server"></i></span> Cloudinary</h3>
+                    <p>Cloudinary offers a free tier with image optimization features.</p>
+                    
+                    <ol>
+                        <li>Sign up for a free account at <a href="https://cloudinary.com" target="_blank">cloudinary.com</a>.</li>
+                        <li>Upload your icon image.</li>
+                        <li>Cloudinary will provide you with a URL for your image.</li>
+                        <li>Use this URL in your TOML file's <code>icon</code> field.</li>
+                    </ol>
+                </div>
+                
+                <h3>Icon Best Practices</h3>
+                <ul>
+                    <li>Use PNG format with transparency for best results</li>
+                    <li>Make your icon square with dimensions of at least 200x200 pixels</li>
+                    <li>Keep the file size under 100KB for faster loading</li>
+                    <li>Ensure the hosting service allows hot-linking (direct image access from other sites)</li>
+                    <li>Test your icon URL by opening it directly in your browser before adding it to your TOML file</li>
+                </ul>
+                
+                <h3>Example TOML Entry with Icon</h3>
+                <pre><code>[[TOKENS]]
+issuer = "rCSCManTZ8ME9EoLrSHHYKW8PPwWMgkwr"
+currency = "CSC"
+name = "CasinoCoin"
+desc = "CasinoCoin (CSC) is a digital currency, developed specifically for the regulated gaming industry."
+icon = "https://raw.githubusercontent.com/yourusername/yourrepository/main/token-icon.png"</code></pre>
+                
+                <h2>Verifying Your TOML File</h2>
+                <p>After hosting your TOML file, you should verify that it's accessible and correctly formatted:</p>
+                
+                <ol>
+                    <li>Open a web browser and navigate to <code>https://yourdomain.com/.well-known/xrp-ledger.toml</code></li>
+                    <li>You should see the raw content of your TOML file.</li>
+                    <li>Check for any errors or formatting issues.</li>
+                </ol>
+                
+                <h2>Troubleshooting</h2>
+                <p>If your TOML file isn't accessible, try these common solutions:</p>
+                
+                <ul>
+                    <li><strong>File not found</strong>: Make sure the file is in the correct location (<code>.well-known/xrp-ledger.toml</code>).</li>
+                    <li><strong>CORS issues</strong>: Ensure your hosting platform allows cross-origin requests. Add the proper headers if needed.</li>
+                    <li><strong>Case sensitivity</strong>: Some servers are case-sensitive. Make sure all folders and files use the exact case as specified.</li>
+                    <li><strong>Hidden folders</strong>: Some platforms might treat folders starting with a dot (.) as hidden. Use the configuration files mentioned above to ensure they're accessible.</li>
+                </ul>
+                
+                <h2>Additional Resources</h2>
+                <p>For more information about XRPL TOML files, check out these resources:</p>
+                
+                <ul>
+                    <li><a href="https://xrpl.org/xrp-ledger-toml.html" target="_blank">XRPL.org Documentation</a></li>
+                    <li><a href="https://github.com/XRPLF/XRPL-Standards/discussions/46" target="_blank">XRPL Standards Discussion</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="MEME.png" alt="MEME Logo">
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#create-token">Create Token</a></li>
+                        <li><a href="index.html#guide">TOML Guide</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect with Us</h3>
+                    <div class="social-buttons">
+                        <a href="http://t.me/CreateXrplTokenBot" class="social-btn telegram"><i class="fab fa-telegram"></i> Telegram Bot</a>
+                        <a href="#" class="social-btn telegram-group"><i class="fab fa-telegram"></i> Telegram Group</a>
+                        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                    <div class="token-buttons">
+                        <a href="#" class="btn buy-token"><i class="fas fa-coins"></i> Buy MEME Token</a>
+                        <a href="#" class="btn buy-nft"><i class="fas fa-image"></i> Buy MEME NFTs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 MEME. All rights reserved.</p>
+                <p class="disclaimer">Disclaimer: Digital assets are highly speculative and involve significant risk of loss. The value of meme tokens is extremely volatile, and anyone who wishes to trade in any meme token should be prepared for the possibility of losing their entire investment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Back to top button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - MEME</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="MEME.png" type="image/png">
+    <style>
+        .docs-section {
+            padding: 140px 0 80px;
+            background-color: var(--dark-bg);
+        }
+        
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(0, 171, 255, 0.3);
+        }
+        
+        .pdf-frame {
+            width: 100%;
+            height: 800px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            background-color: #181818;
+        }
+        
+        .pdf-container {
+            padding: 20px;
+            background-color: #181818;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .pdf-note {
+            color: var(--light-text);
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 171, 255, 0.1);
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .doc-card {
+            background-color: #181818;
+            border-radius: 10px;
+            border: 1px solid #333;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .doc-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 171, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .doc-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .doc-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+        
+        .doc-desc {
+            color: var(--light-text);
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .doc-btn {
+            margin-top: auto;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-frame {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="MEME.png" alt="MEME Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-token.html">Create Token</a></li>
+                    <li><a href="toml-guide.html">TOML Guide</a></li>
+                    <li><a href="documentation.html" class="active">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="http://t.me/CreateXrplTokenBot" class="btn primary-btn">Connect Bot</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>MEME Documentation</h1>
+            <p>Essential guides and resources for creating tokens on XRPL</p>
+        </div>
+    </section>
+
+    <section class="docs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Documentation</h2>
+                <p>View and download our detailed documentation</p>
+            </div>
+            
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="doc-title">User Guide</h3>
+                    <p class="doc-desc">Comprehensive guide on creating and managing your XRPL tokens</p>
+                    <div class="doc-btn">
+                        <a href="MEME_User_Guide.pdf" class="btn primary-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                        <a href="MEME_User_Guide.pdf" class="btn secondary-btn" download><i class="fas fa-download"></i> Download</a>
+                    </div>
+                </div>
+                
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="doc-title">TOML Guide</h3>
+                    <p class="doc-desc">Learn how to create and host your token's TOML file</p>
+                    <div class="doc-btn">
+                        <a href="toml-guide.html" class="btn primary-btn"><i class="fas fa-link"></i> Open Guide</a>
+                    </div>
+                </div>
+                
+                <div class="doc-card">
+                    <div class="doc-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3 class="doc-title">FAQ</h3>
+                    <p class="doc-desc">Frequently asked questions about token creation</p>
+                    <div class="doc-btn">
+                        <a href="#faq" class="btn secondary-btn"><i class="fas fa-list"></i> View FAQ</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pdf-container">
+                <h3>Main Documentation</h3>
+                <p>View our documentation directly in your browser</p>
+                <div class="pdf-note">
+                    <p><strong>Note:</strong> The PDF documentation is provided by MEME to help you understand the token creation process.</p>
+                </div>
+                <iframe src="MEME_User_Guide.pdf" class="pdf-frame" style="width: 100%; height: 800px;">
+                    This browser does not support PDFs. Please download the PDF to view it.
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="MEME.png" alt="MEME Logo">
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="create-token.html">Create Token</a></li>
+                        <li><a href="toml-guide.html">TOML Guide</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect with Us</h3>
+                    <div class="social-buttons">
+                        <a href="http://t.me/CreateXrplTokenBot" class="social-btn telegram"><i class="fab fa-telegram"></i> Telegram Bot</a>
+                        <a href="#" class="social-btn telegram-group"><i class="fab fa-telegram"></i> Telegram Group</a>
+                        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                    <div class="token-buttons">
+                        <a href="#" class="btn buy-token"><i class="fas fa-coins"></i> Buy MEME Token</a>
+                        <a href="#" class="btn buy-nft"><i class="fas fa-image"></i> Buy MEME NFTs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 MEME. All rights reserved.</p>
+                <p class="disclaimer">Disclaimer: Digital assets are highly speculative and involve significant risk of loss. The value of meme tokens is extremely volatile, and anyone who wishes to trade in any meme token should be prepared for the possibility of losing their entire investment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
