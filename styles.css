@@ -518,59 +518,68 @@ nav ul li a:hover::after {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
-    background-color: rgba(10, 10, 10, 0.95);
-    color: var(--light-text);
-    padding: 70px 0 30px;
+    background-color: #0d0d0d;
+    padding: 60px 0 30px;
     border-top: 1px solid #222;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    flex: 0 0 200px;
+    margin-right: 40px;
+    margin-bottom: 20px;
 }
 
 .footer-logo img {
-    height: 50px;
+    max-width: 120px;
+    height: auto;
+}
+
+.footer-links {
+    flex: 0 0 200px;
+    margin-right: 40px;
     margin-bottom: 20px;
 }
 
 .footer-links h3, .footer-social h3 {
-    font-size: 1.2rem;
+    color: var(--primary-color);
     margin-bottom: 20px;
-    position: relative;
-}
-
-.footer-links h3::after, .footer-social h3::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background-color: var(--primary-color);
+    font-size: 1.2rem;
 }
 
 .footer-links ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.footer-links ul li {
+.footer-links li {
     margin-bottom: 10px;
 }
 
-.footer-links ul li a {
-    color: var(--light-text);
-    opacity: 0.8;
-    transition: var(--transition);
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.95rem;
 }
 
-.footer-links ul li a:hover {
-    opacity: 1;
+.footer-links a:hover {
     color: var(--primary-color);
+}
+
+.footer-social {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
 }
 
 .social-buttons {
@@ -584,66 +593,91 @@ footer {
     display: inline-flex;
     align-items: center;
     padding: 8px 15px;
-    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
     font-size: 0.9rem;
-    transition: var(--transition);
-    color: white;
 }
 
-.telegram {
+.social-btn i {
+    margin-right: 8px;
+}
+
+.social-btn.telegram {
+    background-color: rgba(0, 136, 204, 0.2);
+}
+
+.social-btn.telegram:hover {
     background-color: #0088cc;
 }
 
-.telegram-group {
+.social-btn.telegram-group {
+    background-color: rgba(0, 136, 204, 0.1);
+}
+
+.social-btn.telegram-group:hover {
     background-color: #0088cc;
 }
 
-.twitter {
+.social-btn.twitter {
+    background-color: rgba(29, 161, 242, 0.2);
+}
+
+.social-btn.twitter:hover {
     background-color: #1da1f2;
-}
-
-.social-btn:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-    color: white;
 }
 
 .token-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 20px;
-}
-
-.buy-token {
-    background-color: var(--accent-color);
-    color: white;
-}
-
-.buy-nft {
-    background-color: #9b59b6;
-    color: white;
-}
-
-.buy-token:hover, .buy-nft:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-    color: white;
+    margin-top: 15px;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
     text-align: center;
-    font-size: 0.9rem;
-    background-color: #0a0a0a;
+    padding-top: 30px;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-bottom p {
+    color: #777;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
 }
 
 .disclaimer {
+    color: #666;
     font-size: 0.8rem;
-    opacity: 0.7;
-    max-width: 900px;
-    margin: 15px auto 0;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-logo, .footer-links, .footer-social {
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .footer-links {
+        text-align: center;
+    }
+    
+    .footer-social {
+        text-align: center;
+    }
+    
+    .social-buttons, .token-buttons {
+        justify-content: center;
+    }
 }
 
 /* Animations */
