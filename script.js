@@ -142,8 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', revealOnScroll);
 
     // Add placeholder social links
-    document.querySelector('.telegram-group').href = "#";
-    document.querySelector('.twitter').href = "#";
+    document.querySelector('.telegram-group').href = "https://t.me/MemeToolsXrpl";
+    document.querySelector('.twitter').href = "https://x.com/MemeToolsXrp";
     document.querySelector('.buy-token').href = "#";
     document.querySelector('.buy-nft').href = "#";
 
