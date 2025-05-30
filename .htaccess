@@ -1,13 +1,12 @@
-AddType text/plain .toml
+# Force TOML files to display as plain text
+<FilesMatch "\.toml$">
+    ForceType text/plain
+    Header unset Content-Disposition
+    Header set Content-Type "text/plain; charset=utf-8"
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+</FilesMatch>
+
 RewriteEngine On
-
-# Force TOML files to display inline instead of downloading
-<Files "*.toml">
-   Header set Content-Disposition "inline"
-   Header set Content-Type "text/plain; charset=utf-8"
-</Files>
-
-# Remove .html extensions from URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
