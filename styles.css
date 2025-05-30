@@ -742,11 +742,12 @@ footer {
         right: -100%;
         width: 70%;
         height: 100vh;
-        background-color: white;
+        background-color: #0a0a0a;
         z-index: 1000;
         transition: var(--transition);
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         padding: 80px 20px 20px;
+        overflow-y: auto;
     }
 
     nav.active {
@@ -756,10 +757,34 @@ footer {
     nav ul {
         flex-direction: column;
         gap: 20px;
+        padding-bottom: 80px;
+        width: 100%;
     }
 
     nav ul li {
         margin-left: 0;
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 10px 15px;
+        display: block;
+        width: 100%;
+        border-radius: 5px;
+        color: var(--light-text);
+    }
+    
+    nav ul li a:hover {
+        background-color: rgba(0, 204, 61, 0.1);
+    }
+    
+    nav ul li a.active {
+        background-color: rgba(0, 204, 61, 0.2);
+        color: var(--primary-color);
+    }
+    
+    nav ul li a::after {
+        display: none;
     }
 
     body.menu-open {
