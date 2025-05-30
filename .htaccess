@@ -1,7 +1,8 @@
-# Force TOML files to display inline, not download
+# Force TOML to display inline
 <FilesMatch "\.toml$">
-    Header set Content-Type "text/plain; charset=utf-8"
-    Header set Content-Disposition "inline; filename=\"xrp-ledger.toml\""
+    ForceType text/plain
+    Header unset Content-Disposition
+    Header add Content-Disposition "inline"
 </FilesMatch>
 
 RewriteEngine On
