@@ -1,3 +1,7 @@
+# Password files - containing sensitive data
+passwords.txt
+offline-passwords.txt
+
 # System files
 .DS_Store
 Thumbs.db
@@ -7,6 +11,8 @@ Thumbs.db
 .idea/
 *.sublime-project
 *.sublime-workspace
+*.swp
+*.swo
 
 # Dependency directories
 node_modules/

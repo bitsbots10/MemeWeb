@@ -217,16 +217,23 @@ type = "socialmedia"
                 // Log attempt for security monitoring
                 console.log("Password attempt received");
                 
-                // In a real implementation, this would validate against a secure server-side database
-                // with proper hashing and verification
+                // Sample passwords from the generated list
+                // In a real implementation, this would validate against your offline database
+                // These are just a few examples from the passwords.txt file you'll store offline
+                const validPasswords = [
+                    "MEME_01_p8J7KFD5g2Xk", 
+                    "MEME_02_Nc7m3VFK5gXk", 
+                    "MEME_03_qV8Hw9nZG1rL",
+                    "MEME_04_8nJj6dV7uQv3",
+                    "MEME_05_k5gXkQfIUHcL",
+                    "DEMO_PASSWORD" // Keeping this for testing
+                ];
                 
-                // Simulated password validation for demo purposes
-                // In production, this would be a secure server-side validation
-                if (password === "MEME_NFT_ACCESS" || password === "DEMO_PASSWORD") {
+                if (validPasswords.includes(password)) {
                     alert("Password accepted! Your download will begin shortly.");
                     
-                    // Record that this password has been used
-                    // In a real implementation, this would update a database
+                    // In a production environment, you would mark this password as used
+                    // in your offline database
                     console.log("Successful password use recorded");
                     
                     // Simulate download initiation
