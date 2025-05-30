@@ -145,6 +145,30 @@
             margin-top: 30px;
         }
         
+        .pdf-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .pdf-tab {
+            background: none;
+            border: none;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1rem;
+            color: #ccc;
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-tab.active {
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
         @media (max-width: 768px) {
             .doc-header h1 {
                 font-size: 2.2rem;
@@ -181,8 +205,9 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="create-token.html">Create Token</a></li>
                     <li><a href="sniper-bot.html">First Ledger Sniper</a></li>
+                    <li><a href="bundler.html" class="highlight-nav">XRPL Bundler</a></li>
                     <li><a href="toml-guide.html">TOML Guide</a></li>
-                    <li><a href="documentation.html" class="active">Documentation</a></li>
+                    <li><a href="documentation.html" class="active highlight-nav">Documentation</a></li>
                     <li><a href="videos.html">Videos</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
@@ -238,13 +263,17 @@
             </div>
             
             <div id="pdf-viewer" class="pdf-viewer-section">
-                <h2>XRPL Bundles User Guide</h2>
+                <h2>Document Viewer</h2>
+                <div class="pdf-selector">
+                    <button class="pdf-tab active" data-pdf="XRPL_Bundles_User_Guide.pdf">XRPL Bundles Guide</button>
+                    <button class="pdf-tab" data-pdf="MEME_User_Guide.pdf">MEME User Guide</button>
+                </div>
                 <div class="pdf-container">
-                    <iframe src="XRPL_Bundles_User_Guide.pdf" class="pdf-embed" title="XRPL Bundles User Guide"></iframe>
+                    <iframe src="XRPL_Bundles_User_Guide.pdf" id="pdf-frame" class="pdf-embed" title="PDF Document Viewer"></iframe>
                     
                     <div class="pdf-actions">
-                        <a href="XRPL_Bundles_User_Guide.pdf" target="_blank" class="btn primary-btn"><i class="fas fa-external-link-alt"></i> Open in New Tab</a>
-                        <a href="XRPL_Bundles_User_Guide.pdf" class="btn secondary-btn" download><i class="fas fa-download"></i> Download PDF</a>
+                        <a href="#" id="open-tab-link" target="_blank" class="btn primary-btn"><i class="fas fa-external-link-alt"></i> Open in New Tab</a>
+                        <a href="#" id="download-link" class="btn secondary-btn" download><i class="fas fa-download"></i> Download PDF</a>
                     </div>
                 </div>
             </div>
@@ -275,6 +304,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="create-token.html">Create Token</a></li>
                         <li><a href="sniper-bot.html">First Ledger Sniper</a></li>
+                        <li><a href="bundler.html">XRPL Bundler</a></li>
                         <li><a href="toml-guide.html">TOML Guide</a></li>
                         <li><a href="documentation.html">Documentation</a></li>
                         <li><a href="videos.html">Videos</a></li>
@@ -302,5 +332,34 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // PDF Viewer Tab Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const pdfTabs = document.querySelectorAll('.pdf-tab');
+            const pdfFrame = document.getElementById('pdf-frame');
+            const openTabLink = document.getElementById('open-tab-link');
+            const downloadLink = document.getElementById('download-link');
+            
+            pdfTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    pdfTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Get PDF filename from data attribute
+                    const pdfFile = this.getAttribute('data-pdf');
+                    
+                    // Update iframe source
+                    pdfFrame.src = pdfFile;
+                    
+                    // Update action buttons
+                    openTabLink.href = pdfFile;
+                    downloadLink.href = pdfFile;
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
