@@ -144,21 +144,30 @@ nav ul li a:hover::after {
 }
 
 .primary-btn:hover {
-    background-color: var(--primary-dark);
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 204, 61, 0.3);
+    background: #00c3ff;
     transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 171, 255, 0.3);
 }
 
 .secondary-btn {
-    background-color: transparent;
+    background: rgba(0, 171, 255, 0.1);
     color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
 .secondary-btn:hover {
-    background-color: var(--primary-color);
-    color: white;
+    background: rgba(0, 171, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.outline-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.outline-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
 }
 
@@ -910,7 +919,7 @@ footer {
 }
 
 .mt-2 {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .text-center {

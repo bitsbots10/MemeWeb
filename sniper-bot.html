@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Ledger Sniper - MEME Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;800;900&family=Orbitron:wght@700;900&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="MEME.png" type="image/png">
+    <style>
+        .hero-sniper {
+            background: linear-gradient(135deg, #0a0a0a 0%, #131313 100%);
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-sniper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwMCIgaGVpZ2h0PSIxMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0tNTAsOTUwIEMyNTAsMTUwIDkwMCw1MCAxNTAwLDk1MCBMMjA1MCw5NTAgTDIwNTAsMCBMLTUwLDAgWiIgZmlsbD0iIzEyMTIxMiIgZmlsbC1vcGFjaXR5PSIwLjQiLz48L3N2Zz4=');
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero-sniper h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px rgba(0, 171, 255, 0.4);
+        }
+        
+        .hero-sniper p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+        
+        .feature-highlight {
+            background: rgba(0, 171, 255, 0.05);
+            border: 1px solid rgba(0, 171, 255, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-highlight h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(0, 171, 255, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .feature-desc {
+            color: #ddd;
+            line-height: 1.6;
+        }
+        
+        .nft-requirement {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .nft-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            background: rgba(0, 171, 255, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .nft-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .setup-steps {
+            margin-top: 60px;
+        }
+        
+        .setup-steps h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step-item {
+            display: flex;
+            gap: 20px;
+            background: rgba(20, 20, 20, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        
+        .step-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 20px rgba(0, 171, 255, 0.1);
+        }
+        
+        .step-number {
+            background: var(--primary-color);
+            color: #111;
+            font-weight: bold;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .step-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-sniper h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nft-requirement {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        .tech-specs {
+            margin-top: 60px;
+            background: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #333;
+        }
+        
+        .tech-specs h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .spec-item {
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        
+        .spec-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .spec-item h4 i {
+            font-size: 1rem;
+        }
+        
+        .spec-item p {
+            color: #ccc;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        .demo-video {
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .demo-video h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid #444;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="MEME.png" alt="MEME Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-token.html">Create Token</a></li>
+                    <li><a href="sniper-bot.html" class="active highlight-nav">First Ledger Sniper</a></li>
+                    <li><a href="toml-guide.html">TOML Guide</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="http://t.me/CreateXrplTokenBot" class="btn primary-btn">Connect Bot</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-sniper">
+        <div class="container">
+            <div class="hero-content">
+                <h1>First Ledger Sniper</h1>
+                <p>Exclusive browser extension for instant token purchasing on the XRP Ledger</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn primary-btn glow-btn"><i class="fas fa-download"></i> Download Extension</a>
+                    <a href="#setup" class="btn secondary-btn"><i class="fas fa-book"></i> Setup Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-highlight">
+                <h2>Gain the Trading Edge on XRPL</h2>
+                <p>First Ledger Sniper is a specialized browser extension that allows MEME NFT holders to automatically purchase tokens instantly when they are listed on exchanges.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="feature-title">Instant Transactions</h3>
+                        <p class="feature-desc">Execute trades within milliseconds of token listings to secure the best possible entry price.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="feature-title">Automated Trading</h3>
+                        <p class="feature-desc">Set your parameters once and let the extension automatically execute trades based on your criteria.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Secure Connection</h3>
+                        <p class="feature-desc">Direct connection to XRPL nodes ensures secure and reliable transactions without intermediaries.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3 class="feature-title">Customizable Settings</h3>
+                        <p class="feature-desc">Configure purchase amounts, transaction timing, and other parameters to match your trading strategy.</p>
+                    </div>
+                </div>
+                
+                <div class="nft-requirement">
+                    <div class="nft-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="nft-content">
+                        <h3>MEME NFT Required</h3>
+                        <p>Access to First Ledger Sniper is exclusive to MEME NFT holders. This requirement ensures our tool remains powerful and effective by limiting its availability to dedicated community members.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="setup" class="setup-steps">
+        <div class="container">
+            <h2>Getting Started with First Ledger Sniper</h2>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Acquire a MEME NFT</h3>
+                        <p>Purchase a MEME NFT from our marketplace to gain access to the First Ledger Sniper extension.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Download the Extension</h3>
+                        <p>Download the browser extension and follow the installation instructions for your browser.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Connect Your Wallet</h3>
+                        <p>Link your XRP wallet to the extension and verify your MEME NFT ownership.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Configure Your Settings</h3>
+                        <p>Set your preferred trading parameters including maximum purchase amount, price limits, and target exchanges.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Start Trading</h3>
+                        <p>Activate the extension and it will automatically monitor and execute trades based on your parameters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+    
+    <section class="tech-specs">
+        <div class="container">
+            <h2>Technical Specifications</h2>
+            
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h4><i class="fas fa-browser"></i> Browser Compatibility</h4>
+                    <p>Chrome, Firefox, Edge, and Brave</p>
+                </div>
+                
+                <div class="spec-item">
+                    <h4><i class="fas fa-wallet"></i> Supported Wallets</h4>
+                    <p>XUMM, Ledger, and other XRPL-compatible wallets</p>
+                </div>
+                
+                <div class="spec-item">
+                    <h4><i class="fas fa-exchange-alt"></i> Supported Exchanges</h4>
+                    <p>All major XRPL decentralized exchanges</p>
+                </div>
+                
+                <div class="spec-item">
+                    <h4><i class="fas fa-tachometer-alt"></i> Transaction Speed</h4>
+                    <p>Millisecond execution time</p>
+                </div>
+                
+                <div class="spec-item">
+                    <h4><i class="fas fa-lock"></i> Security</h4>
+                    <p>End-to-end encryption, no storage of private keys</p>
+                </div>
+                
+                <div class="spec-item">
+                    <h4><i class="fas fa-code-branch"></i> Version</h4>
+                    <p>1.0.0 (Updates released quarterly)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+
+    <section class="demo-video">
+        <div class="container">
+            <h2>See First Ledger Sniper in Action</h2>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/24GJSKrEG2E" title="First Ledger Sniper Extension" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to gain the trading edge?</h2>
+                <p>Get your MEME NFT today and access the exclusive First Ledger Sniper extension</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn primary-btn"><i class="fas fa-image"></i> Buy MEME NFT</a>
+                    <a href="#" class="btn secondary-btn"><i class="fas fa-download"></i> Download Extension</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="MEME.png" alt="MEME Logo">
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="create-token.html">Create Token</a></li>
+                        <li><a href="sniper-bot.html">First Ledger Sniper</a></li>
+                        <li><a href="toml-guide.html">TOML Guide</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect with Us</h3>
+                    <div class="social-buttons">
+                        <a href="http://t.me/CreateXrplTokenBot" class="social-btn telegram"><i class="fab fa-telegram"></i> Telegram Bot</a>
+                        <a href="#" class="social-btn telegram-group"><i class="fab fa-telegram"></i> Telegram Group</a>
+                        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                    <div class="token-buttons">
+                        <a href="#" class="btn buy-token"><i class="fas fa-coins"></i> Buy MEME Token</a>
+                        <a href="#" class="btn buy-nft"><i class="fas fa-image"></i> Buy MEME NFTs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 MEME. All rights reserved.</p>
+                <p class="disclaimer">Disclaimer: Digital assets are highly speculative and involve significant risk of loss. The value of meme tokens is extremely volatile, and anyone who wishes to trade in any meme token should be prepared for the possibility of losing their entire investment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
