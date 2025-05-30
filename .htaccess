@@ -1,5 +1,10 @@
-AddType text/plain .toml
+# Force TOML files to display inline, not download
+<FilesMatch "\.toml$">
+    Header set Content-Type "text/plain; charset=utf-8"
+    Header set Content-Disposition "inline; filename=\"xrp-ledger.toml\""
+</FilesMatch>
+
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^\.]+)$ $1.html [NC,L] 
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
