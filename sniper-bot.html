@@ -349,6 +349,73 @@
                 margin-bottom: 15px;
             }
         }
+
+        .degen-alert-section {
+            padding: 80px 0;
+            background: rgba(10, 10, 10, 0.6);
+        }
+
+        .alert-bot-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+            padding: 40px;
+        }
+
+        .alert-bot-container:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 40px rgba(0, 171, 255, 0.2);
+        }
+
+        .alert-bot-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .platform-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .platform-name {
+            display: inline-block;
+            background: rgba(0, 171, 255, 0.1);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            border: 1px solid rgba(0, 171, 255, 0.3);
+        }
+
+        .alert-bot-cta {
+            margin-top: 30px;
+        }
+
+        .nft-required-note {
+            margin-top: 15px;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .nft-required-note i {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .platform-list {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -363,8 +430,9 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="create-token.html">Create Token</a></li>
-                    <li><a href="sniper-bot.html" class="active highlight-nav">First Ledger Sniper</a></li>
-                    <li><a href="bundler.html" class="highlight-nav">XRPL Bundler</a></li>
+                    <li><a href="sniper-bot.html" class="active highlight-nav">First Ledger Extension</a></li>
+                    <li><a href="bundler.html" class="highlight-nav">Auto Sniper / Bundler</a></li>
+                    <li><a href="https://t.me/FLDegenAlert_bot" target="_blank" class="highlight-nav">Alert Bot</a></li>
                     <li><a href="toml-guide.html">TOML Guide</a></li>
                     <li><a href="documentation.html">Documentation</a></li>
                     <li><a href="videos.html">Videos</a></li>
@@ -372,7 +440,7 @@
                 </ul>
             </nav>
             <div class="header-buttons">
-                <a href="http://t.me/CreateXrplTokenBot" class="btn primary-btn">Connect Bot</a>
+                <a href="https://t.me/CreateXrplTokenBot" class="btn primary-btn">Connect Bot</a>
             </div>
         </div>
     </header>
@@ -548,6 +616,32 @@
 
     <div class="section-divider"></div>
 
+    <section class="degen-alert-section">
+        <div class="container">
+            <h2>Degen Alert Bot</h2>
+            <div class="alert-bot-container">
+                <div class="alert-bot-info">
+                    <h3>Get Instant Alerts for New Token Issuances</h3>
+                    <p>Stay ahead of the market with real-time notifications when new tokens are issued on leading XRPL platforms:</p>
+                    <ul class="platform-list">
+                        <li><span class="platform-name">First Ledger</span></li>
+                        <li><span class="platform-name">Xmagnetic</span></li>
+                        <li><span class="platform-name">XPmarket</span></li>
+                        <li><span class="platform-name">Aigent</span></li>
+                        <li><span class="platform-name">Horizon</span></li>
+                        <li><span class="platform-name">Meme.ledger</span></li>
+                    </ul>
+                    <p>Receive hyperlinks with early access to newly issued tokens, giving you the edge in your trading strategy.</p>
+                    <div class="alert-bot-cta">
+                        <a href="https://t.me/FLDegenAlert_bot" target="_blank" class="btn primary-btn"><i class="fab fa-telegram"></i> Connect to Alert Bot</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
     <section class="cta">
         <div class="container">
             <div class="cta-content">
@@ -555,7 +649,10 @@
                 <p>Get your MEME NFT today and access the exclusive First Ledger Sniper extension</p>
                 <div class="cta-buttons">
                     <a href="#" class="btn primary-btn"><i class="fas fa-image"></i> Buy MEME NFT</a>
-                    <a href="#" class="btn secondary-btn"><i class="fas fa-download"></i> Download Extension</a>
+                    <a href="#" class="btn secondary-btn" id="download-extension"><i class="fas fa-download"></i> Download Extension</a>
+                </div>
+                <div class="nft-required-note">
+                    <p><i class="fas fa-info-circle"></i> Note: NFT ownership is required to access the Download button</p>
                 </div>
             </div>
         </div>
@@ -572,8 +669,9 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="create-token.html">Create Token</a></li>
-                        <li><a href="sniper-bot.html">First Ledger Sniper</a></li>
-                        <li><a href="bundler.html">XRPL Bundler</a></li>
+                        <li><a href="sniper-bot.html">First Ledger Extension</a></li>
+                        <li><a href="bundler.html">Auto Sniper / Bundler</a></li>
+                        <li><a href="https://t.me/FLDegenAlert_bot" target="_blank">Alert Bot</a></li>
                         <li><a href="toml-guide.html">TOML Guide</a></li>
                         <li><a href="documentation.html">Documentation</a></li>
                         <li><a href="videos.html">Videos</a></li>
@@ -583,9 +681,9 @@
                 <div class="footer-social">
                     <h3>Connect with Us</h3>
                     <div class="social-buttons">
-                        <a href="http://t.me/CreateXrplTokenBot" class="social-btn telegram"><i class="fab fa-telegram"></i> Telegram Bot</a>
-                        <a href="#" class="social-btn telegram-group"><i class="fab fa-telegram"></i> Telegram Group</a>
-                        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="https://t.me/CreateXrplTokenBot" class="social-btn telegram"><i class="fab fa-telegram"></i> Create Token Bot</a>
+                        <a href="https://t.me/XrplBundlesBot" class="social-btn telegram"><i class="fab fa-telegram"></i> Auto Sniper / Bundler Bot</a>
+                        <a href="https://t.me/FLDegenAlert_bot" class="social-btn telegram"><i class="fab fa-telegram"></i> Alert Bot</a>
                     </div>
                     <div class="token-buttons">
                         <a href="#" class="btn buy-token"><i class="fas fa-coins"></i> Buy MEME Token</a>

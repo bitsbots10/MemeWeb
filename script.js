@@ -202,4 +202,42 @@ type = "socialmedia"
             copyBtn.textContent = 'Copy Sample';
         }, 2000);
     });
+
+    // Password-protected download for First Ledger Extension
+    const downloadButton = document.getElementById('download-extension');
+    
+    if (downloadButton) {
+        downloadButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Show password prompt
+            const password = prompt("Please enter your NFT password to download the extension:");
+            
+            if (password) {
+                // Log attempt for security monitoring
+                console.log("Password attempt received");
+                
+                // In a real implementation, this would validate against a secure server-side database
+                // with proper hashing and verification
+                
+                // Simulated password validation for demo purposes
+                // In production, this would be a secure server-side validation
+                if (password === "MEME_NFT_ACCESS" || password === "DEMO_PASSWORD") {
+                    alert("Password accepted! Your download will begin shortly.");
+                    
+                    // Record that this password has been used
+                    // In a real implementation, this would update a database
+                    console.log("Successful password use recorded");
+                    
+                    // Simulate download initiation
+                    setTimeout(function() {
+                        // In production, this would be a secure download link
+                        window.location.href = "https://firstledger.com/downloads/extension.zip";
+                    }, 1500);
+                } else {
+                    alert("Invalid password. Please ensure you have purchased a MEME NFT and received your unique password.");
+                }
+            }
+        });
+    }
 }); 
