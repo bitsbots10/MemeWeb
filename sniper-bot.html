@@ -301,56 +301,52 @@
         }
 
         .extension-preview {
+            display: none;
+        }
+        
+        .anti-snipe-highlight {
             display: flex;
             align-items: center;
-            margin: 50px 0;
-            background: rgba(20, 20, 20, 0.7);
+            margin: 30px 0;
+            background: rgba(0, 171, 255, 0.1);
             border-radius: 12px;
-            border: 1px solid #333;
-            overflow: hidden;
-            transition: all 0.3s ease;
+            border: 1px solid var(--primary-color);
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 171, 255, 0.2);
         }
         
-        .extension-preview:hover {
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(0, 171, 255, 0.2);
-        }
-        
-        .extension-image {
-            flex: 0 0 40%;
-            padding: 20px;
-        }
-        
-        .extension-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .extension-caption {
-            flex: 0 0 60%;
-            padding: 30px;
-        }
-        
-        .extension-caption h3 {
+        .highlight-icon {
+            font-size: 2.5rem;
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-right: 25px;
+            flex-shrink: 0;
         }
         
-        .extension-caption p {
+        .highlight-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+        }
+        
+        .highlight-content p {
             color: #ddd;
             line-height: 1.6;
         }
         
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
-            .extension-preview {
+            .anti-snipe-highlight {
                 flex-direction: column;
+                text-align: center;
             }
             
-            .extension-image, .extension-caption {
-                flex: 0 0 100%;
-                width: 100%;
+            .highlight-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
             }
         }
     </style>
@@ -398,7 +394,17 @@
         <div class="container">
             <div class="feature-highlight">
                 <h2>Gain the Trading Edge on XRPL</h2>
-                <p>First Ledger Sniper is a specialized browser extension that speeds up token purchases on XRPL exchanges, saving valuable time during launches and helping you secure the best entry positions.</p>
+                <p>First Ledger Sniper is a specialized browser extension designed specifically for <span class="highlight">anti-snipe tokens</span>, allowing you to be first in line by significantly speeding up the purchase process on XRPL exchanges.</p>
+                
+                <div class="anti-snipe-highlight">
+                    <div class="highlight-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Perfect for Anti-Snipe Tokens</h3>
+                        <p>Particularly effective for anti-snipe tokens where being first in line is crucial. The extension saves precious seconds by automating slippage and XRP value settings, giving you the competitive edge needed to secure the best positions.</p>
+                    </div>
+                </div>
                 
                 <div class="features-grid">
                     <div class="feature-card">
@@ -423,24 +429,6 @@
                         </div>
                         <h3 class="feature-title">One-Click Trading</h3>
                         <p class="feature-desc">Simply click "Confirm" to execute your purchase - no complex setup or wallet connection required. (Auto-confirm coming soon after TGE!)</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-crosshairs"></i>
-                        </div>
-                        <h3 class="feature-title">Anti-Snipe Advantage</h3>
-                        <p class="feature-desc">Particularly effective for anti-snipe tokens where being first in line is crucial - save precious seconds when they matter most.</p>
-                    </div>
-                </div>
-                
-                <div class="extension-preview">
-                    <div class="extension-image">
-                        <img src="FLPIC.PNG" alt="First Ledger Sniper Extension Interface">
-                    </div>
-                    <div class="extension-caption">
-                        <h3>Simple, Powerful Interface</h3>
-                        <p>The First Ledger Sniper extension features an intuitive interface that allows you to quickly enable auto-buy functionality with preset optimal parameters.</p>
                     </div>
                 </div>
                 
