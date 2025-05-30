@@ -1737,4 +1737,46 @@ section {
     .fee-alert .alert-icon {
         margin-bottom: 10px;
     }
+}
+
+.nft-banner {
+    background: linear-gradient(135deg, rgba(0, 171, 255, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nft-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nft-banner-content h2 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nft-banner-content p {
+    color: var(--light-text);
+    margin: 0;
+    opacity: 0.9;
+}
+
+.nft-banner-content .btn {
+    margin: 0;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .nft-banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nft-banner-content .btn {
+        width: 100%;
+    }
 } 

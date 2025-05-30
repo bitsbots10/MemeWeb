@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.telegram-group').href = "https://t.me/MemeToolsXrpl";
     document.querySelector('.twitter').href = "https://x.com/MemeToolsXrp";
     document.querySelector('.buy-token').href = "#";
-    document.querySelector('.buy-nft').href = "#";
+    document.querySelector('.buy-nft').href = "https://xrp.cafe/collection/memetools";
 
     // Sample TOML content for reference
     const sampleTomlContent = `
