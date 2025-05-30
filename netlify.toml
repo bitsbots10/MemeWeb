@@ -1,6 +1,12 @@
 [build]
   publish = "./"
 
+[[headers]]
+  for = "/.well-known/xrp-ledger.toml"
+  [headers.values]
+    Content-Type = "text/plain"
+    Access-Control-Allow-Origin = "*"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
