@@ -1,0 +1,24 @@
+[[ISSUERS]]
+address = "rCSCManTZ8ME9EoLrSHHYKW8PPwWMgkwr"
+name = "CasinoCoin"
+
+[[TOKENS]]
+issuer = "rCSCManTZ8ME9EoLrSHHYKW8PPwWMgkwr"
+currency = "CSC"
+name = "CasinoCoin"
+desc = "CasinoCoin (CSC) is a digital currency, developed specifically for the regulated gaming industry."
+icon = "https://xumm.app/assets/icons/currencies/ex-csc-3.png"
+
+[[TOKENS.WEBLINKS]]
+url = "https://casinocoin.im"
+type = "website"
+title = "Official Website"
+
+[[TOKENS.WEBLINKS]]
+url = "https://casinocoin.info"
+type = "website"
+title = "Token Info Dashboard"
+
+[[TOKENS.WEBLINKS]]
+url = "https://twitter.com/CasinoCoin"
+type = "socialmedia"
