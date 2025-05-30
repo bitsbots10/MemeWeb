@@ -138,6 +138,11 @@
             margin-bottom: 10px;
         }
         
+        .nft-content p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+        
         .setup-steps {
             margin-top: 60px;
         }
@@ -294,6 +299,60 @@
             height: 100%;
             border: none;
         }
+
+        .extension-preview {
+            display: flex;
+            align-items: center;
+            margin: 50px 0;
+            background: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            border: 1px solid #333;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .extension-preview:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 171, 255, 0.2);
+        }
+        
+        .extension-image {
+            flex: 0 0 40%;
+            padding: 20px;
+        }
+        
+        .extension-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .extension-caption {
+            flex: 0 0 60%;
+            padding: 30px;
+        }
+        
+        .extension-caption h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .extension-caption p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .extension-preview {
+                flex-direction: column;
+            }
+            
+            .extension-image, .extension-caption {
+                flex: 0 0 100%;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -339,7 +398,7 @@
         <div class="container">
             <div class="feature-highlight">
                 <h2>Gain the Trading Edge on XRPL</h2>
-                <p>First Ledger Sniper is a specialized browser extension that allows MEME NFT holders to automatically purchase tokens instantly when they are listed on exchanges.</p>
+                <p>First Ledger Sniper is a specialized browser extension that speeds up token purchases on XRPL exchanges, saving valuable time during launches and helping you secure the best entry positions.</p>
                 
                 <div class="features-grid">
                     <div class="feature-card">
@@ -347,31 +406,41 @@
                             <i class="fas fa-bolt"></i>
                         </div>
                         <h3 class="feature-title">Instant Transactions</h3>
-                        <p class="feature-desc">Execute trades within milliseconds of token listings to secure the best possible entry price.</p>
+                        <p class="feature-desc">Save critical seconds during token launches by automating the purchase process, allowing you to be first in line for new listings.</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-robot"></i>
                         </div>
-                        <h3 class="feature-title">Automated Trading</h3>
-                        <p class="feature-desc">Set your parameters once and let the extension automatically execute trades based on your criteria.</p>
+                        <h3 class="feature-title">Automated Settings</h3>
+                        <p class="feature-desc">Automatically configures slippage and XRP value settings, eliminating manual setup time and reducing errors during fast-paced launches.</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3 class="feature-title">Secure Connection</h3>
-                        <p class="feature-desc">Direct connection to XRPL nodes ensures secure and reliable transactions without intermediaries.</p>
+                        <h3 class="feature-title">One-Click Trading</h3>
+                        <p class="feature-desc">Simply click "Confirm" to execute your purchase - no complex setup or wallet connection required. (Auto-confirm coming soon after TGE!)</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-crosshairs"></i>
                         </div>
-                        <h3 class="feature-title">Customizable Settings</h3>
-                        <p class="feature-desc">Configure purchase amounts, transaction timing, and other parameters to match your trading strategy.</p>
+                        <h3 class="feature-title">Anti-Snipe Advantage</h3>
+                        <p class="feature-desc">Particularly effective for anti-snipe tokens where being first in line is crucial - save precious seconds when they matter most.</p>
+                    </div>
+                </div>
+                
+                <div class="extension-preview">
+                    <div class="extension-image">
+                        <img src="FLPIC.PNG" alt="First Ledger Sniper Extension Interface">
+                    </div>
+                    <div class="extension-caption">
+                        <h3>Simple, Powerful Interface</h3>
+                        <p>The First Ledger Sniper extension features an intuitive interface that allows you to quickly enable auto-buy functionality with preset optimal parameters.</p>
                     </div>
                 </div>
                 
@@ -407,31 +476,31 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>Download the Extension</h3>
-                        <p>Download the browser extension and follow the installation instructions for your browser.</p>
+                        <p>Download the browser extension and follow the simple installation instructions for your browser.</p>
                     </div>
                 </div>
                 
                 <div class="step-item">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Connect Your Wallet</h3>
-                        <p>Link your XRP wallet to the extension and verify your MEME NFT ownership.</p>
+                        <h3>Enable the Extension</h3>
+                        <p>Click the extension icon in your browser and toggle "Enable Extension" to activate the auto-buy functionality.</p>
                     </div>
                 </div>
                 
                 <div class="step-item">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>Configure Your Settings</h3>
-                        <p>Set your preferred trading parameters including maximum purchase amount, price limits, and target exchanges.</p>
+                        <h3>Browse to Token Page</h3>
+                        <p>Navigate to the token page you want to purchase from and the extension will automatically set up optimal parameters.</p>
                     </div>
                 </div>
                 
                 <div class="step-item">
                     <div class="step-number">5</div>
                     <div class="step-content">
-                        <h3>Start Trading</h3>
-                        <p>Activate the extension and it will automatically monitor and execute trades based on your parameters.</p>
+                        <h3>Click Confirm</h3>
+                        <p>When you're ready to purchase, simply click "Confirm" and the extension handles the rest. That's it!</p>
                     </div>
                 </div>
             </div>
