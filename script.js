@@ -247,4 +247,19 @@ type = "socialmedia"
             }
         });
     }
+
+    // Copy issuer address functionality
+    const issuerAddress = document.getElementById('issuer-address');
+    const copySuccess = document.getElementById('copy-success');
+    if (issuerAddress) {
+        issuerAddress.addEventListener('click', function() {
+            const address = 'r4CjDs9ucn6hDNwZj9xigQivkDWzQtcLhh';
+            navigator.clipboard.writeText(address).then(function() {
+                if (copySuccess) {
+                    copySuccess.style.display = 'inline';
+                    setTimeout(() => { copySuccess.style.display = 'none'; }, 1500);
+                }
+            });
+        });
+    }
 }); 
